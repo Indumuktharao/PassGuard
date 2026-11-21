@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101326">
+  <title>PassGuard — Password Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="PassGuard home">
+        <span class="brand-mark">✳</span><span>pass<span class="brand-accent">guard</span></span>
+      </a>
+      <span class="privacy-pill"><span class="privacy-dot"></span> Private on this device</span>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> YOUR FIRST LINE OF DEFENCE</div>
+      <h1>Make every password<br><span>count.</span></h1>
+      <p class="intro-copy">Check your password strength, get practical tips, and keep a private record of your checks.</p>
+    </section>
+
+    <section class="dashboard">
+      <div class="main-card card">
+        <div class="card-heading">
+          <div>
+            <p class="section-kicker">PASSWORD ANALYSER</p>
+            <h2>How strong is yours?</h2>
+          </div>
+          <span class="shield-icon" aria-hidden="true">◇</span>
+        </div>
+
+        <label class="field-label" for="password">ENTER A PASSWORD</label>
+        <div class="password-field">
+          <input id="password" type="password" placeholder="Type a password to check" autocomplete="new-password" spellcheck="false">
+          <button class="visibility-btn" id="toggleBtn" type="button" aria-label="Show password">Show</button>
+        </div>
+
+        <div class="meter-heading">
+          <span>STRENGTH</span><strong id="strengthText" class="strength-label neutral">Not checked yet</strong>
+        </div>
+        <div class="strength-track" role="progressbar" aria-label="Password strength" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="strengthTrack">
+          <div class="strength-bar" id="strengthBar"></div>
+        </div>
+
+        <div class="requirements">
+          <div class="requirements-heading"><span>SECURITY CHECKLIST</span><span id="criteriaCount">0/6 met</span></div>
+          <ul class="rules" id="rulesList">
+            <li data-rule="length"><span class="rule-icon">○</span> At least 12 characters</li>
+            <li data-rule="upper"><span class="rule-icon">○</span> An uppercase letter</li>
+            <li data-rule="lower"><span class="rule-icon">○</span> A lowercase letter</li>
+            <li data-rule="number"><span class="rule-icon">○</span> A number</li>
+            <li data-rule="symbol"><span class="rule-icon">○</span> A special character</li>
+            <li data-rule="noSpaces"><span class="rule-icon">○</span> No spaces</li>
+          </ul>
+        </div>
+
+        <div class="suggestion-box" id="suggestionBox" aria-live="polite">
+          <span class="suggestion-icon">✦</span>
+          <div><strong id="suggestionTitle">A little guidance goes a long way</strong><p id="suggestionText">Enter a password to see tailored suggestions for making it stronger.</p></div>
+        </div>
+
+        <button class="check-btn" id="checkBtn" type="button">Check &amp; save result <span>↗</span></button>
+        <p class="save-note">Only a masked label and result are saved — never the password itself.</p>
+      </div>
+
+      <aside class="side-column">
+        <div class="tip-card card">
+          <div class="tip-symbol">✧</div>
+          <p class="section-kicker">QUICK TIP</p>
+          <h3>Longer is<br>stronger.</h3>
+          <p>A unique passphrase with 4 or more unrelated words can be easier to remember and harder to guess.</p>
+          <div class="tip-decoration">✳</div>
+        </div>
+
+        <div class="history-card card">
+          <div class="history-heading">
+            <div><p class="section-kicker">YOUR ACTIVITY</p><h3>Recent checks</h3></div>
+            <span class="history-count" id="historyCount">0</span>
+          </div>
+          <div id="historyList" class="history-list">
+            <div class="empty-history"><span>⌁</span><p>Your checked results will<br>appear here.</p></div>
+          </div>
+          <button class="clear-btn" id="clearHistoryBtn" type="button" hidden>Clear history</button>
+        </div>
+      </aside>
+    </section>
+
+    <footer><span>PASSGUARD</span><span>Simple checks. Smarter habits.</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
